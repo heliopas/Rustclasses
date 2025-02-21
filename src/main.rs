@@ -3,7 +3,7 @@ const PI:f32 = 3.1415;
 // declaração de uma variavel global imutavel
 static GLOBAL_VAR:u8 = 1;
 // declaração de uma variavel global mutavel
-static mut GLOBAL_VAR_MUT:u8 = 1;
+//static mut GLOBAL_VAR_MUT:u8 = 1; não existe mais
 
 // '->' especifica o retorno da função e o tipo
 fn soma(a:i32, b:i32) -> i32{
@@ -40,9 +40,9 @@ println!("PI: {}", PI);
 println!("Variavel global: {}", GLOBAL_VAR);
 
 //uso de variaveis globais é inseguro usando unsafe a responsabilidade é do programador
-unsafe {
-    println!("Valor CTE mutavel: {}", GLOBAL_VAR_MUT);
-}
+//unsafe {
+//    println!("Valor CTE mutavel: {}", GLOBAL_VAR_MUT);  não existe mais
+//}
 
 
 
