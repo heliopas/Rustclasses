@@ -13,6 +13,28 @@ return a + b // sem ';' retorna valor, não precisa de return para retornar valo
 
 }
 
+fn vetores() {
+
+    let vec_notas = [1f32, 10.50, 8f32, 8f32, 10f32]; // a notação xxf32 realiza um typecast
+    let vec_notas2 = [6.5; 50]; // cria um vetor de 50 elementos com o valor '6.5'
+    
+    
+    for aux in 1..vec_notas.len() {
+    
+        println!("numero do vetor: {}", vec_notas[aux]);
+            
+    }
+    
+    for aux in 1..vec_notas2.len() {
+    
+        println!("numero do vetor: {}", vec_notas2[aux]);
+            
+    }
+
+}
+
+
+
 fn var() {
 
     let var8:i8 = 127; // maximo aceito pelo i8
@@ -29,6 +51,50 @@ fn var() {
     
 }
 
+fn matriz () {
+    let mat = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+        ];
+
+for linha in mat {
+    for columm in linha {
+        println!("Numeros da matriz: {}", columm);
+    }
+}
+
+}
+
+#[allow(dead_code)] // permite código morto
+enum Color{
+    Red,
+    Green,
+    Blue,
+    RgbColor(u8, u8, u8),
+    CymkColor{cyan: u8, magenta: u8, yellow: u8, black: u8}
+}
+
+fn cores(){
+    //let cor = Color::Red;
+
+    let cor = Color::CymkColor { cyan: 0, magenta: 0, yellow: 0, black: 255 };
+
+
+    println!("Cor = {}", match cor {
+        Color::Blue => "Azul",
+        Color::Green => "Verde",
+        Color::Red => "Vermelho",
+        Color::RgbColor(_ , _, _) => "Rgb Desconhecida", // '_' não importa
+        Color::RgbColor(0, 0, 0) | Color::CymkColor { cyan: _ , magenta: _ , yellow: _ , black: 255 }=> "Preto",
+        Color::CymkColor { cyan: _ , magenta: _ , yellow: _ , black: _ } => "CYMK desconhecido"
+        
+    });
+
+
+}
+
+
 
 fn main() {
 println!("Working!");
@@ -44,6 +110,10 @@ println!("Variavel global: {}", GLOBAL_VAR);
 //    println!("Valor CTE mutavel: {}", GLOBAL_VAR_MUT);  não existe mais
 //}
 
+//vetores();
+
+matriz();
+cores();
 
 
 }
